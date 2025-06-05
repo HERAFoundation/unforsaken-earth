@@ -13,16 +13,21 @@ import { InputLabel } from '@root/system/typography/forms';
 import Input from '@root/system/Input';
 
 import styles from '@system/typography/FormTypography.module.scss';
+import DemoSearchComponentFour from '@root/demos/DemoSearchComponentFour';
+import ThemeToggleButton from '@root/system/ThemeToggleButton';
+import SearchResults from '@root/components/SearchResults';
 
 function Example(props) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
 
     try {
-      const response = await fetch(`https://api.catalogueoflife.org/nameusage/search?q=${encodeURIComponent(searchTerm)}`);
+      const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}`);
       const data = await response.json();
+      setSearchResults(data.results);
       console.log('Search results:', data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -33,15 +38,22 @@ function Example(props) {
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
         <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1 className={styles.header}>unforsaken.earth</h1>
-      <div style={{ paddingBottom: 12 }}>
-        <InputLabel style={{ marginTop: 24 }} />
+              <ThemeToggleButton />
+      <InputLabel style={{ marginTop: 24 }} />
+        <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ paddingBottom: 12 }}>
           <div style={{ marginBottom: 12 }}>
             <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           </div>
         </div>
-          <Button onClick={handleSearch}>Search the biosphere</Button>
+        <Button  type='submit'>Search the biosphere</Button>
+      </form>
       </div>
-    </Page>
+
+    <SearchResults results={searchResults}></SearchResults>
+
+
+      </Page>
   );
 }
 
