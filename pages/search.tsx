@@ -36,18 +36,20 @@ function Example(props) {
 
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
-        <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 className={styles.header}>unforsaken.earth</h1>
-              <ThemeToggleButton />
-      <InputLabel style={{ marginTop: 24 }} />
-        <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ paddingBottom: 12 }}>
-          <div style={{ marginBottom: 12 }}>
-            <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-          </div>
+      <div style={{ position: 'relative', width: '100%', paddingBottom: 12 }}>
+        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 24, paddingBottom: 24 }}>
+          <h1 className={styles.header}>unforsaken.earth</h1>
+          <InputLabel style={{ marginTop: 24 }} />
+          <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 12 }}>
+            <div style={{ paddingBottom: 12 }}>
+              <div style={{ marginBottom: 12 }}>
+                <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              </div>
+            </div>
+            <Button  type='submit'>Search the biosphere</Button>
+          </form>
+          <ThemeToggleButton />
         </div>
-        <Button  type='submit'>Search the biosphere</Button>
-      </form>
       </div>
 
     <SearchResults results={searchResults}></SearchResults>
