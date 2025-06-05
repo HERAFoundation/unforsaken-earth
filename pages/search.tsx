@@ -19,6 +19,7 @@ import SearchResults from '@root/components/SearchResults';
 
 function Example(props) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]); // Add state for search results
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
@@ -26,6 +27,7 @@ function Example(props) {
     try {
       const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}`);
       const data = await response.json();
+      setSearchResults(data.results); // Update search results state
       console.log('Search results:', data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -48,7 +50,7 @@ function Example(props) {
       </form>
       </div>
 
-    <SearchResults></SearchResults>
+    <SearchResults results={searchResults}></SearchResults>
 
 
       </Page>
