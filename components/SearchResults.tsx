@@ -65,11 +65,6 @@ export default function SearchResults(props: SearchResultsProps) {
                     iNaturalist
                   </a>
                 </div>
-                {result.default_photo?.attribution && (
-                  <p className={styles.attribution}>
-                    {result.default_photo.attribution}
-                  </p>
-                )}
               </div>
             </div>
           ))}
