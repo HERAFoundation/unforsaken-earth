@@ -15,11 +15,11 @@ import Input from '@root/system/Input';
 import styles from '@system/typography/FormTypography.module.scss';
 
 function Example(props) {
-    const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-    const handleSearch = async () => {
+  const handleSearch = async () => {
     if (!searchTerm.trim()) return;
-    
+
     try {
       const response = await fetch(`https://api.catalogueoflife.org/nameusage/search?q=${encodeURIComponent(searchTerm)}`);
       const data = await response.json();
@@ -30,23 +30,16 @@ function Example(props) {
   };
 
   return (
-    <Page
-      title="Search"
-      description="Search the biosphere for taxa using the Catalogue of Life API."
-      url="https://unforsaken.earth/search"
-      isNotOpenSourceExample={true}
-    >
-      <h1 className={styles.head}>unforsaken earth</h1>
+    <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
+      <h1 className={styles.header}>unforsaken earth</h1>
       <div style={{ paddingBottom: 128 }}>
-         <FormHeading>Example Form</FormHeading>
-        <InputLabel style={{ marginTop: 24 }}/>
-        <Input 
-          style={{ marginTop: 8 }} 
-          placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" 
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <Button onClick={handleSearch}>Search the biosphere</Button>
+        <InputLabel style={{ marginTop: 24 }} />
+        <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ marginBottom: 12 }}>
+            <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+          </div>
+          <Button onClick={handleSearch}>Search the biosphere</Button>
+        </div>
       </div>
     </Page>
   );

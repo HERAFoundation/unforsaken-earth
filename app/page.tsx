@@ -49,8 +49,5 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 export default async function Page(props) {
-  return (
-    <DefaultLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png">
-         </DefaultLayout>
-  );
+  return <DefaultLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png"></DefaultLayout>;
 }
