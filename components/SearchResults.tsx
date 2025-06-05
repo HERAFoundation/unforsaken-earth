@@ -3,6 +3,7 @@ import * as React from 'react';
 
 interface INaturalistResult {
   id: number;
+  rank: string;
   name: string;
   preferred_common_name?: string;
   default_photo?: {
@@ -30,6 +31,7 @@ export default function SearchResults(props: SearchResultsProps) {
   return (
     <>
       {rows.map((rowItems, rowIndex) => (
+      <div className={styles.searchResultsContainer}>
         <div key={rowIndex} className={styles.row}>
           {rowItems.map((result, columnIndex) => (
             <div key={result.id} className={styles.column}>
@@ -42,6 +44,9 @@ export default function SearchResults(props: SearchResultsProps) {
               )}
               <div className={styles.content}>
                 {result.preferred_common_name || result.name}
+                <div className={styles.rank}>
+                  {result.rank}
+                  </div>
               </div>
               <div className={styles.title}>
                 <div className={styles.links}>
@@ -68,6 +73,7 @@ export default function SearchResults(props: SearchResultsProps) {
             </div>
           ))}
         </div>
+      </div>
       ))}
     </>
   );
