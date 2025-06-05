@@ -10,7 +10,6 @@ interface INaturalistResult {
     attribution?: string;
   };
   wikipedia_url?: string;
-  // Add other relevant fields from the iNaturalist API response
 }
 
 interface SearchResultsProps {
@@ -23,7 +22,7 @@ export default function SearchResults(props: SearchResultsProps) {
   }
 
   const itemsPerRow = 4;
-  const rows: INaturalistResult[][] = []; // Explicitly type rows
+  const rows: INaturalistResult[][] = [];
   for (let i = 0; i < props.results.length; i += itemsPerRow) {
     rows.push(props.results.slice(i, i + itemsPerRow));
   }

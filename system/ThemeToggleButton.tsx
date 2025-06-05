@@ -7,7 +7,6 @@ export default function ThemeToggleButton(props) {
   const [currentTheme, setCurrentTheme] = React.useState('');
 
   React.useEffect(() => {
-    // Get the current theme from body class
     const body = document.body;
     if (body.classList.contains('theme-light')) {
       setCurrentTheme('Light');
@@ -20,14 +19,13 @@ export default function ThemeToggleButton(props) {
     } else if (body.classList.contains('theme-neon-green')) {
       setCurrentTheme('Neon');
     } else {
-      setCurrentTheme('Light'); // Default fallback
+      setCurrentTheme('Light');
     }
   }, []);
 
   const handleThemeChange = () => {
     Utilities.onHandleThemeChange();
     
-    // Update the current theme state after change
     setTimeout(() => {
       const body = document.body;
       if (body.classList.contains('theme-light')) {
