@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-sass-starter",
-  "description": "A starting repository for the Internet Development Studio team.",
+  "name": "unforsaken-earth",
+  "description": "A social biodiversity data experience",
   "engines": {
     "node": ">=18"
   },
