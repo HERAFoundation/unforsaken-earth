@@ -21,7 +21,7 @@ function Example(props) {
     if (!searchTerm.trim()) return;
 
     try {
-      const response = await fetch(`https://api.catalogueoflife.org/nameusage/search?q=${encodeURIComponent(searchTerm)}`);
+      const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}`);
       const data = await response.json();
       console.log('Search results:', data);
     } catch (error) {
