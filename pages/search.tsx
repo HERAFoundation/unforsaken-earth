@@ -13,6 +13,9 @@ import { InputLabel } from '@root/system/typography/forms';
 import Input from '@root/system/Input';
 
 import styles from '@system/typography/FormTypography.module.scss';
+import DemoSearchComponentFour from '@root/demos/DemoSearchComponentFour';
+import ThemeToggleButton from '@root/system/ThemeToggleButton';
+import SearchResults from '@root/components/SearchResults';
 
 function Example(props) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,6 +36,7 @@ function Example(props) {
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
         <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1 className={styles.header}>unforsaken.earth</h1>
+              <ThemeToggleButton />
       <InputLabel style={{ marginTop: 24 }} />
         <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ paddingBottom: 12 }}>
@@ -43,7 +47,11 @@ function Example(props) {
         <Button  type='submit'>Search the biosphere</Button>
       </form>
       </div>
-    </Page>
+
+    <SearchResults></SearchResults>
+
+
+      </Page>
   );
 }
 
