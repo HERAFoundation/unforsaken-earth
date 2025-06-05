@@ -31,15 +31,15 @@ function Example(props) {
 
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
-      <h1 className={styles.header}>unforsaken earth</h1>
-      <div style={{ paddingBottom: 128 }}>
-        <InputLabel style={{ marginTop: 24 }} />
         <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h1 className={styles.header}>unforsaken.earth</h1>
+      <div style={{ paddingBottom: 12 }}>
+        <InputLabel style={{ marginTop: 24 }} />
           <div style={{ marginBottom: 12 }}>
             <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           </div>
-          <Button onClick={handleSearch}>Search the biosphere</Button>
         </div>
+          <Button onClick={handleSearch}>Search the biosphere</Button>
       </div>
     </Page>
   );
