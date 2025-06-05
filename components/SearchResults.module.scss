@@ -144,28 +144,21 @@
 
 .row {
   border-top: 1px solid var(--theme-border);
-  border-right: 1px solid var(--theme-border);
+  border-left: 1px solid var(--theme-border);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   font-size: 10px;
-
-  &:last-child {
-    border-bottom: 1px solid var(--theme-border);
-  }
 }
 
 .column {
-  border-left: 1px solid var(--theme-border);
+  border-right: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
   min-height: 160px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   flex-direction: column;
   padding: 12px;
-
-  &:first-child {
-    border-left: 0px;
-  }
 }
 
 .title {
