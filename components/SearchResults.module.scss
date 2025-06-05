@@ -148,6 +148,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   font-size: 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .column {
