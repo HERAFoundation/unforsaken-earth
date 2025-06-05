@@ -33,13 +33,15 @@ function Example(props) {
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
         <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1 className={styles.header}>unforsaken.earth</h1>
-      <div style={{ paddingBottom: 12 }}>
-        <InputLabel style={{ marginTop: 24 }} />
+      <InputLabel style={{ marginTop: 24 }} />
+        <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ paddingBottom: 12 }}>
           <div style={{ marginBottom: 12 }}>
             <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           </div>
         </div>
-          <Button onClick={handleSearch}>Search the biosphere</Button>
+        <Button  type='submit'>Search the biosphere</Button>
+      </form>
       </div>
     </Page>
   );
