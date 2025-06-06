@@ -16,6 +16,7 @@ import styles from '@system/typography/FormTypography.module.scss';
 import DemoSearchComponentFour from '@root/demos/DemoSearchComponentFour';
 import ThemeToggleButton from '@root/system/ThemeToggleButton';
 import SearchResults from '@root/components/SearchResults';
+import searchStyles from '@components/SearchResults.module.scss';
 
 function Example(props) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,22 +37,29 @@ function Example(props) {
 
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
-        <div style={{ paddingBottom: 12, alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 className={styles.header}>unforsaken.earth</h1>
-              <ThemeToggleButton />
-      <InputLabel style={{ marginTop: 24 }} />
-        <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ paddingBottom: 12 }}>
-          <div style={{ marginBottom: 12 }}>
-            <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-          </div>
+      <div style={{ position: 'relative', width: '100%', paddingBottom: 12 }}>
+        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 24, paddingBottom: 24 }}>
+          <h1 className={styles.header}>unforsaken.earth</h1>
+          <InputLabel style={{ marginTop: 24 }} />
+          <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 12 }}>
+            <div style={{ paddingBottom: 12 }}>
+              <div style={{ marginBottom: 12 }}>
+                <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <Button type='submit'>Search the biosphere</Button>
+            </div>
+          </form>
         </div>
-        <Button  type='submit'>Search the biosphere</Button>
-      </form>
       </div>
 
     <SearchResults results={searchResults}></SearchResults>
 
+        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <a style={{paddingBottom: '10px'}} className={searchStyles.link} href='https://github.com/HERAFoundation/unforsaken-earth'>Source Code</a>
+              <ThemeToggleButton showLabel={false} />
+        </div>
 
       </Page>
   );
