@@ -145,7 +145,7 @@ export default function DemoSearchComponentFour(props) {
           <div className={styles.title}>The Mom Test</div>
         </div>
         <div className={styles.column}>
-          <div className={styles.content}>Persistence and determination alone are omnipotent. Before them, obstacles vanish into thin air and mountains crumble into atoms.</div>
+          <div className={styles.content} style={{display:'flex'}}>Persistence and determination alone are omnipotent. Before them, obstacles vanish into thin air and mountains crumble into atoms.</div>
           <div className={styles.title}>The Eternal Pursuit of Unhappyness</div>
         </div>
         <div className={styles.column}>
