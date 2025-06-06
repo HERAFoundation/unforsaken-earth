@@ -18,10 +18,6 @@ interface SearchResultsProps {
 }
 
 export default function SearchResults(props: SearchResultsProps) {
-  if (!props.results || props.results.length === 0) {
-    return <div className={styles.noResults}>No results found.</div>;
-  }
-
   const itemsPerRow = 4;
   const rows: INaturalistResult[][] = [];
   for (let i = 0; i < props.results.length; i += itemsPerRow) {

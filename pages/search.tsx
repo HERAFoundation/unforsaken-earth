@@ -16,6 +16,7 @@ import styles from '@system/typography/FormTypography.module.scss';
 import DemoSearchComponentFour from '@root/demos/DemoSearchComponentFour';
 import ThemeToggleButton from '@root/system/ThemeToggleButton';
 import SearchResults from '@root/components/SearchResults';
+import searchStyles from '@components/SearchResults.module.scss';
 
 function Example(props) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,14 +47,19 @@ function Example(props) {
                 <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               </div>
             </div>
-            <Button  type='submit'>Search the biosphere</Button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <Button type='submit'>Search the biosphere</Button>
+            </div>
           </form>
-          <ThemeToggleButton />
         </div>
       </div>
 
     <SearchResults results={searchResults}></SearchResults>
 
+        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <a style={{paddingBottom: '10px'}} className={searchStyles.link} href='https://github.com/HERAFoundation/unforsaken-earth'>Source Code</a>
+              <ThemeToggleButton showLabel={false} />
+        </div>
 
       </Page>
   );
