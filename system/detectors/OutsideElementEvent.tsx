@@ -18,7 +18,7 @@ const OutsideElementEvent: React.FC<OutsideElementEventProps> = ({ className, ch
 
   const handleOutsideEvent = (event) => {
     if (!isReady) return;
-    
+
     if (event.target.hasAttribute('data-detector-ignore-navigation')) {
       return;
     }

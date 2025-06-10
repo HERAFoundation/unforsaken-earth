@@ -41,27 +41,34 @@ function Example(props) {
         <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 24, paddingBottom: 24 }}>
           <h1 className={styles.header}>unforsaken.earth</h1>
           <InputLabel style={{ marginTop: 24 }} />
-          <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 12 }}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 12 }}
+          >
             <div style={{ paddingBottom: 12 }}>
               <div style={{ marginBottom: 12 }}>
                 <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <Button type='submit'>Search the biosphere</Button>
+              <Button type="submit">Search the biosphere</Button>
             </div>
           </form>
         </div>
       </div>
 
-    <SearchResults results={searchResults}></SearchResults>
+      <SearchResults results={searchResults}></SearchResults>
 
-        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <a style={{paddingBottom: '10px'}} className={searchStyles.link} href='https://github.com/HERAFoundation/unforsaken-earth'>Source Code</a>
-              <ThemeToggleButton showLabel={false} />
-        </div>
-
-      </Page>
+      <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <a style={{ paddingBottom: '10px' }} className={searchStyles.link} href="https://github.com/HERAFoundation/unforsaken-earth">
+          Source Code
+        </a>
+        <ThemeToggleButton showLabel={false} />
+      </div>
+    </Page>
   );
 }
 

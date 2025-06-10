@@ -24,18 +24,20 @@ function ExampleThemeToggleButton(props) {
           <Lead style={{ marginTop: `var(--type-scale-5)` }}>
             This component allows users to cycle through all available themes in the application. It uses the built-in theme switching functionality.
           </Lead>
-          
+
           <div style={{ marginTop: '2rem', padding: '2rem', border: '1px solid var(--theme-border)', borderRadius: '8px' }}>
             <P style={{ marginBottom: '1rem' }}>Click the button below to cycle through themes:</P>
-            
+
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
               <ThemeToggleButton />
               <ThemeToggleButton showLabel={false} />
             </div>
           </div>
-          
+
           <div style={{ marginTop: '2rem' }}>
-            <P><strong>Available themes:</strong></P>
+            <P>
+              <strong>Available themes:</strong>
+            </P>
             <ul style={{ marginTop: '1rem', paddingLeft: '2rem' }}>
               <li>Light - Clean light theme</li>
               <li>Dark - Modern dark theme</li>
@@ -44,18 +46,22 @@ function ExampleThemeToggleButton(props) {
               <li>Neon Green - Cyberpunk green theme</li>
             </ul>
           </div>
-          
+
           <div style={{ marginTop: '2rem' }}>
-            <P><strong>Usage:</strong></P>
-            <pre style={{ 
-              marginTop: '1rem', 
-              padding: '1rem', 
-              background: 'var(--theme-foreground)', 
-              borderRadius: '4px',
-              overflow: 'auto',
-              fontSize: '14px'
-            }}>
-{`import ThemeToggleButton from '@system/ThemeToggleButton';
+            <P>
+              <strong>Usage:</strong>
+            </P>
+            <pre
+              style={{
+                marginTop: '1rem',
+                padding: '1rem',
+                background: 'var(--theme-foreground)',
+                borderRadius: '4px',
+                overflow: 'auto',
+                fontSize: '14px',
+              }}
+            >
+              {`import ThemeToggleButton from '@system/ThemeToggleButton';
 
 // With label (default)
 <ThemeToggleButton />

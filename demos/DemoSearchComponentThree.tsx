@@ -184,7 +184,9 @@ const Item = (props) => {
 
   return (
     <li className={styles.item} style={style}>
-      <span className={styles.left}><span className={styles.subject}>{props.icon}</span></span>
+      <span className={styles.left}>
+        <span className={styles.subject}>{props.icon}</span>
+      </span>
       <span className={styles.right}>{props.children}</span>
     </li>
   );

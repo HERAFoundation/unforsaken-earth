@@ -110,7 +110,9 @@ const ResizableMonospaceWindow = React.forwardRef<HTMLDivElement, ResizableMonos
       {props.title ? (
         <div className={styles.header} data-header="true">
           <div>{props.title}</div>
-          <div className={styles.close} data-close="true">X</div>
+          <div className={styles.close} data-close="true">
+            X
+          </div>
         </div>
       ) : null}
       {props.children}

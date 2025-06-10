@@ -106,6 +106,6 @@ const ModalNavigationV2: ModalComponent<ModalNavigationV2Props> = (props) => {
       </OutsideElementEvent>
     </div>
   );
-}
+};
 
 export default ModalNavigationV2;

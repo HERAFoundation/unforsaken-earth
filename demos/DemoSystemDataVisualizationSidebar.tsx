@@ -171,7 +171,8 @@ export const VISUALIZATION_OPTIONS = [
       '',
       <Tag>Tree</Tag>,
       <SubText style={{ marginTop: 7 }}>
-        Node trees represent data in a hierarchical manner, which is intuitive for modeling many real-world scenarios, such as organizational structures, file systems, and more.{' '}
+        Node trees represent data in a hierarchical manner, which is intuitive for modeling many real-world scenarios, such as organizational structures, file systems, and
+        more.{' '}
       </SubText>,
     ],
   },

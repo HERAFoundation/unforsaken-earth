@@ -8,10 +8,7 @@ import Page from '@components/Page';
 function ExampleModalsHamburgerMenu(props) {
   // (@xBalbinus): This populates the navigation in the hamburger menu.
   // You should change this to your own content in production.
-  const NAV_CONTENT = [
-    { name: 'Home' },
-    { name: 'About' },
-  ];
+  const NAV_CONTENT = [{ name: 'Home' }, { name: 'About' }];
 
   return (
     <Page

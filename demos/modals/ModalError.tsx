@@ -8,7 +8,7 @@ import OutsideElementEvent from '@system/detectors/OutsideElementEvent';
 import { ModalComponent } from '@root/system/modals/ModalContext';
 
 export interface ModalErrorProps {
-  message: any
+  message: any;
 }
 
 const ModalError: ModalComponent<ModalErrorProps> = (props) => {
@@ -22,6 +22,6 @@ const ModalError: ModalComponent<ModalErrorProps> = (props) => {
       </OutsideElementEvent>
     </div>
   );
-}
+};
 
 export default ModalError;

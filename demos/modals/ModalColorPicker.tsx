@@ -18,6 +18,6 @@ const ModalColorPicker: ModalComponent = (props) => {
       </OutsideElementEvent>
     </div>
   );
-}
+};
 
 export default ModalColorPicker;
