@@ -40,6 +40,9 @@ export default function SearchResults(props: SearchResultsProps) {
               )}
               <div className={styles.content}>
                 {result.preferred_common_name || result.name}
+                <div className={styles.latin}>
+                  { !result.preferred_common_name || result.name}
+                  </div>
                 <div className={styles.rank}>
                   {result.rank}
                   </div>
