@@ -18,9 +18,10 @@ import ThemeToggleButton from '@root/system/ThemeToggleButton';
 import SearchResults from '@root/components/SearchResults';
 import searchStyles from '@components/SearchResults.module.scss';
 
-function Example(props) {
+function SearchTaxa(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [resultsCount, setResultsCount] = useState(0);
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
@@ -29,6 +30,7 @@ function Example(props) {
       const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}`);
       const data = await response.json();
       setSearchResults(data.results);
+      setResultsCount(data.total_results);
       console.log('Search results:', data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -57,8 +59,12 @@ function Example(props) {
               <Button type="submit">Search the biosphere</Button>
             </div>
           </form>
+      <div>
+        {resultsCount > 0 ? resultsCount: <></>} results
+      </div>
         </div>
       </div>
+
 
       <SearchResults results={searchResults}></SearchResults>
 
@@ -80,4 +86,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default Example;
+export default SearchTaxa;
