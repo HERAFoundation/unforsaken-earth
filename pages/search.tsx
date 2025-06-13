@@ -60,7 +60,11 @@ function SearchTaxa(props) {
             </div>
           </form>
       <div>
-        {resultsCount > 0 ? resultsCount: <></>} results
+        {resultsCount > 0 ? (
+          <>
+            {resultsCount} results
+          </>
+        ) : null}
       </div>
         </div>
       </div>
