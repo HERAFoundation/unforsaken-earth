@@ -27,7 +27,7 @@ function SearchTaxa(props) {
     if (!searchTerm.trim()) return;
 
     try {
-      const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}`);
+      const response = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(searchTerm)}&per_page=100`);
       const data = await response.json();
       setSearchResults(data.results);
       setResultsCount(data.total_results);
