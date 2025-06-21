@@ -21,6 +21,7 @@
   transition: 200ms ease all;
   transform: scale(1);
   text-decoration: none;
+  font-family: monospace;
 
   &:visited {
     color: var(--theme-button-text);
