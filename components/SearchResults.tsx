@@ -30,9 +30,7 @@ export default function SearchResults(props: SearchResultsProps) {
         <div className={styles.searchResultsContainer}>
           <div key={rowIndex} className={styles.row}>
             {rowItems.map((result, columnIndex) => (
-              <>
-                <TaxaCard result={result}></TaxaCard>
-              </>
+              <TaxaCard result={result} />
             ))}
           </div>
         </div>
