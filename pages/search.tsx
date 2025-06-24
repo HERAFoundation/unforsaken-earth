@@ -9,6 +9,8 @@ import Page from '@components/Page';
 import { FormHeading } from '@root/system/typography/forms';
 import Button from '@root/system/Button';
 
+import Bluesky from '@system/svg/social/Bluesky';
+
 import { InputLabel } from '@root/system/typography/forms';
 import Input from '@root/system/Input';
 
@@ -22,6 +24,7 @@ function SearchTaxa(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
@@ -48,6 +51,9 @@ function SearchTaxa(props) {
         <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 24, paddingBottom: 24 }}>
           <h1 className={styles.header}>unforsaken.earth</h1>
           <InputLabel style={{ marginTop: 24 }} />
+            <Button visual loading={loading} style={{ marginTop: 16, width: '15%' }}>
+              <Bluesky height="16px" style={{ marginRight: 12, color: '#0A7AFF' }} /> Sign in with Bluesky
+            </Button>
           <form
             onSubmit={(e) => {
               e.preventDefault();
