@@ -37,6 +37,11 @@ function SearchTaxa(props) {
     }
   };
 
+  const getResultsText = (count) => {
+    if (count === 0) return null;
+    return count === 1 ? `${count} result` : `${count} results`;
+  };
+
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
       <div style={{ position: 'relative', width: '100%', paddingBottom: 12 }}>
@@ -59,16 +64,9 @@ function SearchTaxa(props) {
               <Button type="submit">Search the biosphere</Button>
             </div>
           </form>
-      <div>
-        {resultsCount > 0 ? (
-          <>
-            {resultsCount} results
-          </>
-        ) : null}
-      </div>
+          <div>{getResultsText(resultsCount)}</div>
         </div>
       </div>
-
 
       <SearchResults results={searchResults}></SearchResults>
 
