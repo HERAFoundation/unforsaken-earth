@@ -8,6 +8,7 @@ import KeyHeader from '@system/KeyHeader';
 import Page from '@components/Page';
 import { FormHeading } from '@root/system/typography/forms';
 import Button from '@root/system/Button';
+import MinimalFooter from '@root/components/MinimalFooter';
 
 import { InputLabel } from '@root/system/typography/forms';
 import Input from '@root/system/Input';
@@ -22,6 +23,45 @@ function SearchTaxa(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
+
+  const searchPageStyles = {
+    pageContainer: {
+      position: 'relative' as const,
+      width: '100%',
+      paddingBottom: 12,
+    },
+    centerContainer: {
+      alignContent: 'center',
+      display: 'flex',
+      flexDirection: 'column' as const,
+      alignItems: 'center',
+      paddingTop: 24,
+      paddingBottom: 24,
+    },
+    headerLabel: {
+      marginTop: 24,
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column' as const,
+      alignItems: 'center',
+      paddingBottom: 12,
+    },
+    inputContainer: {
+      paddingBottom: 12,
+    },
+    inputWrapper: {
+      marginBottom: 12,
+    },
+    input: {
+      marginTop: 8,
+    },
+    buttonContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '16px',
+    },
+  };
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
@@ -44,38 +84,31 @@ function SearchTaxa(props) {
 
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
-      <div style={{ position: 'relative', width: '100%', paddingBottom: 12 }}>
-        <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 24, paddingBottom: 24 }}>
+      <div style={searchPageStyles.pageContainer}>
+        <div style={searchPageStyles.centerContainer}>
           <h1 className={styles.header}>unforsaken.earth</h1>
-          <InputLabel style={{ marginTop: 24 }} />
+          <InputLabel style={searchPageStyles.headerLabel} />
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSearch();
             }}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 12 }}
+            style={searchPageStyles.form}
           >
-            <div style={{ paddingBottom: 12 }}>
-              <div style={{ marginBottom: 12 }}>
-                <Input style={{ marginTop: 8 }} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            <div style={searchPageStyles.inputContainer}>
+              <div style={searchPageStyles.inputWrapper}>
+                <Input style={searchPageStyles.input} placeholder="Enter taxa (ex.Hummingbird, Ganoderma)" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={searchPageStyles.buttonContainer}>
               <Button type="submit">Search the biosphere</Button>
             </div>
           </form>
           <div>{getResultsText(resultsCount)}</div>
         </div>
       </div>
-
       <SearchResults results={searchResults}></SearchResults>
-
-      <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <a style={{ paddingBottom: '10px' }} className={searchStyles.link} href="https://github.com/HERAFoundation/unforsaken-earth">
-          Source Code
-        </a>
-        <ThemeToggleButton showLabel={false} />
-      </div>
+      <MinimalFooter />
     </Page>
   );
 }
