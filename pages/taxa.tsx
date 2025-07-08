@@ -31,12 +31,7 @@ function SearchTaxa(props) {
   return (
     <Page title="Search" description="Search the biosphere for taxa using the Catalogue of Life API." url="https://unforsaken.earth/search" isNotOpenSourceExample={true}>
       <div className={styles.container}>
-        <div className={styles.taxaCardWrapper}>
-          <TaxaCard {...ganodermaOregonense} />
-        </div>
-        <div className={styles.taxaCardWrapper}>
-          <FlippableTaxaCard {...ganodermaOregonense} backElement={<div>Back content for {ganodermaOregonense.preferred_common_name}</div>} />
-        </div>
+        <FlippableTaxaCard {...ganodermaOregonense} backElement={<div>Back content for {ganodermaOregonense.preferred_common_name}</div>} />
       </div>
       <MinimalFooter />
     </Page>
