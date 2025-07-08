@@ -1,25 +1,13 @@
 import styles from '@components/SearchResults.module.scss';
-import TaxaCard from './TaxaCard';
-
-export interface INaturalistResult {
-  id: number;
-  rank: string;
-  name: string;
-  preferred_common_name?: string;
-  default_photo?: {
-    medium_url?: string;
-    attribution?: string;
-  };
-  wikipedia_url?: string;
-}
+import TaxaCard, { TaxaCardProps } from './TaxaCard';
 
 interface SearchResultsProps {
-  results: INaturalistResult[];
+  results: TaxaCardProps[];
 }
 
 export default function SearchResults(props: SearchResultsProps) {
   const itemsPerRow = 4;
-  const rows: INaturalistResult[][] = [];
+  const rows: TaxaCardProps[][] = [];
   for (let i = 0; i < props.results.length; i += itemsPerRow) {
     rows.push(props.results.slice(i, i + itemsPerRow));
   }
@@ -30,7 +18,7 @@ export default function SearchResults(props: SearchResultsProps) {
         <div className={styles.searchResultsContainer}>
           <div key={rowIndex} className={styles.row}>
             {rowItems.map((result, columnIndex) => (
-              <TaxaCard result={result} />
+              <TaxaCard key={columnIndex} {...result} />
             ))}
           </div>
         </div>
