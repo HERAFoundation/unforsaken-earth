@@ -7,6 +7,7 @@ import Page from '@components/Page';
 import MinimalFooter from '@root/components/MinimalFooter';
 
 import TaxaCard, { TaxaCardProps } from '@root/components/TaxaCard';
+import FlippableTaxaCard from '@system/FlippableTaxaCard';
 import styles from './taxa.module.scss';
 
 function SearchTaxa(props) {
@@ -32,6 +33,9 @@ function SearchTaxa(props) {
       <div className={styles.container}>
         <div className={styles.taxaCardWrapper}>
           <TaxaCard {...ganodermaOregonense} />
+        </div>
+        <div className={styles.taxaCardWrapper}>
+          <FlippableTaxaCard {...ganodermaOregonense} backElement={<div>Back content for {ganodermaOregonense.preferred_common_name}</div>} />
         </div>
       </div>
       <MinimalFooter />
