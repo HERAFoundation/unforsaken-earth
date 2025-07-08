@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  min-height: 50vh;
+  justify-content: center;
+}
+
+.taxaCardWrapper {
+  max-width: 400px;
+  width: 100%;
+  
+  .column {
+    min-height: 200px !important;
+    max-width: 400px;
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .taxaCardWrapper {
+    max-width: 100%;
+  }
+}
