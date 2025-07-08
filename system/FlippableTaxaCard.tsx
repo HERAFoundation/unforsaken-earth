@@ -15,7 +15,7 @@ export interface TaxaCardProps {
 }
 
 const FlippableTaxaCard = (props: TaxaCardProps & { backElement?: React.ReactNode }) => {
-  const [flipped, setFlipped] = React.useState(false);
+  const [flipped, setFlipped] = React.useState(true);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
